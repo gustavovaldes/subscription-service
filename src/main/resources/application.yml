@@ -22,7 +22,7 @@ eventService:
   context: /eventService
 spring:
   rabbitmq:
-    addresses:             locahost
+    addresses:             localhost
     port: 5672
     username:              guest
     password:              guest

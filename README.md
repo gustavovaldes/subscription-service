@@ -105,11 +105,21 @@ Only few tests implemented.
 
 `./gradlew test`
 
-## Integration tests
+## Integration tests 
 
 Only few tests implemented using Cucumber. 
 
-update:Test broken, app not starting because rabbit dependency (@WIP) 
+Event Service is mocked with WireMock.
+
+Embedded Mongo is used
+
+@Wip: Local Rabbit is required. Options: After running docker-compose  stop the 
+docker with the subscription-service but keep running rabbit; or install rabbit in local host. 
+
+
+Report with results in build/reports/integration/integrationTestResults.xml
+ 
+ `./gradlew clean integrationTest`
  
  
 ## CI/CD Pipeline Proposal

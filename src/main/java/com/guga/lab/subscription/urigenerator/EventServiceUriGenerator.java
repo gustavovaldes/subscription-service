@@ -1,6 +1,5 @@
 package com.guga.lab.subscription.urigenerator;
 
-import com.sun.javafx.scene.SceneEventDispatcher;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;

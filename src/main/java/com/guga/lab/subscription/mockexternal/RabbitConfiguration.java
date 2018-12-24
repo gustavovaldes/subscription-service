@@ -17,9 +17,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
-import java.time.ZoneId;
-import java.util.TimeZone;
-
 @Configuration
 public class RabbitConfiguration {
 

@@ -34,7 +34,6 @@ public class CommonSteps {
     @LocalServerPort
     private int port;
     private ResponseEntity<String> response;
-    private String authorizationToken;
     private WireMockServer server;
     @Autowired
     private TestRestTemplate restTemplate;

@@ -21,7 +21,7 @@ import javax.validation.Valid;
 
 @RestController
 @Slf4j
-@Api("Api to creae subscriptions")
+@Api("Api to create subscriptions")
 public class SubscriptionController {
 
     @Autowired

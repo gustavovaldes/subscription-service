@@ -11,6 +11,9 @@ emailService:
   host: localhost
   port: -1
   context: /emailService
+  queueName:  emailQueue
+  exchange: subscription.exchange
+  routing-key: subscription.event.SubscriptionCreated
 
 eventService:
   scheme: https

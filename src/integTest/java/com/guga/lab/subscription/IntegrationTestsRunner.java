@@ -14,9 +14,4 @@ import org.junit.runner.RunWith;
         tags = "~@NotImplemented"
 )
 public class IntegrationTestsRunner {
-
-    @Test
-    public void test(){
-        Assert.assertTrue(false);
-    }
 }

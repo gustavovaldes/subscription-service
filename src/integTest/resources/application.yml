@@ -3,6 +3,9 @@ emailService:
   host: localhost
   port: 1580
   context: /emailService
+  queueName:  emailQueue
+  exchange: subscription.exchange
+  routing-key: subscription.event.SubscriptionCreated
 
 eventService:
   scheme: http
@@ -12,7 +15,7 @@ eventService:
 
 spring:
   rabbitmq:
-    addresses:             locahost
+    addresses:             localhost
     port: 5672
     username:              guest
     password:              guest
