@@ -68,7 +68,7 @@ finally complete the "subscription" process and be sure all steps were successfu
 Based on the information provided, there is no need to relational databases here, information can be stored in a single 
 document, and we get single digit ms response time.
 
-###Workflow:
+### Workflow:
 1. POST to /subscription service
 2. Document persisted in MongoDB as NEW status
 3. Rest call to Event Service
@@ -77,7 +77,7 @@ document, and we get single digit ms response time.
  If any failure during communication between services, rollback attempted. ( idea to implement SAGA, but not 
  implemented completely)
  
-###Security considerations
+### Security considerations
 1. Enabled only https (using self-signed certificate)
 2. Basic token authentication filter implemented. So is mandatory to include Authorization header with value 'Bearer 
 abc'
