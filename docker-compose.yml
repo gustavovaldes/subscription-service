@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.5.3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  mongodb:
+    image: mongo:3.0.4
+    ports:
+      - "27017:27017"
+    command: mongod --smallfiles
+  subscription:
+    image:  com.guga.lab/subscription-service:0.0.1-SNAPSHOT
+    depends_on:
+      - rabbitmq
+      - mongodb
+    ports:
+      - "443:443"
+    environment:
+      SPRING_DATA_MONGODB_HOST: mongodb
+      SPRING_RABBITMQ_ADDRESSES: rabbitmq
+      EMAILSERVICE_HOST:  subscription
+      EVENTSERVICE_HOST:  subscription

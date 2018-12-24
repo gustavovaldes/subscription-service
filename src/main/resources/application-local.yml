@@ -1,0 +1,44 @@
+server:
+  port: 443
+  ssl:
+    key-store: keystore.p12
+    key-store-password: adidas
+    key-store-type: PKCS12
+    key-alias: guga
+
+emailService:
+  scheme: https
+  host: localhost
+  port: -1
+  context: /emailService
+
+eventService:
+  scheme: https
+  host: localhost
+  port: -1
+  context: /eventService
+spring:
+  rabbitmq:
+    addresses:             localhost
+    username:              rabbituser
+    password:              rabbitpass
+    virtual-host:          development
+    listener:
+      direct:
+        auto-startup: true
+        prefetch: 1
+        retry:
+          max-attempts: 3
+        acknowledge-mode: auto
+    template:
+      exchange: subcription.exchange
+      routing-key: email
+
+service:
+  period: 24h
+  rabbitmq:
+    auto-startup:  true
+    exchange: plan.assortment.topic.exchange
+    acc:
+      routing-key: plan.assortment-audit-history.event.AssortedCustomerChoiceVersionCreated
+      queue: acc-audit-history

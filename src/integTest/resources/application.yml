@@ -1,0 +1,12 @@
+emailService:
+  scheme: http
+  host: localhost
+  port: 1580
+  context: /emailService
+
+eventService:
+  scheme: http
+  host: localhost
+  port: 1580
+  context: /eventService
+
