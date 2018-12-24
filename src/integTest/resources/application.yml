@@ -10,3 +10,21 @@ eventService:
   port: 1580
   context: /eventService
 
+spring:
+  rabbitmq:
+    addresses:             locahost
+    port: 5672
+    username:              guest
+    password:              guest
+    virtual-host:          /
+    listener:
+      direct:
+        auto-startup: true
+        prefetch: 1
+        retry:
+          max-attempts: 3
+        acknowledge-mode: auto
+        consumers-per-queue: 1
+    template:
+      exchange: subscription.exchange
+      routing-key: subscription.event.SubscriptionCreated

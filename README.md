@@ -103,14 +103,15 @@ mongodb and rabbitmq (and update properly the application-local.yml file)
 ### Unit Tests
 Only few tests implemented.
 
-`./gradle tests`
+`./gradlew test`
 
 ## Integration tests
-Only few tests implemented using Cucumber.  Using wireMock to mock external Services (email & event)
 
-`./gradle integrationTests`
+Only few tests implemented using Cucumber. 
 
-
+update:Test broken, app not starting because rabbit dependency (@WIP) 
+ 
+ 
 ## CI/CD Pipeline Proposal
 
 1. Build  Segment:  compile, build, sonar, unit tests, artifactory (or equivalent in Docker world)
