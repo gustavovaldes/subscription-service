@@ -9,11 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpStatusCodeException;
 
 import javax.validation.Valid;
@@ -46,5 +47,12 @@ public class SubscriptionController {
     public ResponseEntity<String> handleErrors(Throwable t){
         log.error("Internal Error ", t);
         return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(t.getLocalizedMessage());
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public String processValidationError(MethodArgumentNotValidException ex) {
+        log.error("Validation Error ", ex);
+        return ex.getLocalizedMessage();
     }
 }
